@@ -1,0 +1,52 @@
+
+body {
+    height: 50vh;
+    padding-left: 350px;
+}
+
+.profile img {
+    width: 30vw; 
+    height: auto; 
+    border-radius: 50%; 
+    float: right;
+    margin: 3% 3% 10% 15%; 
+    max-width: 600px; 
+    margin: 0px 100px 15px 450px;
+}
+
+.container {
+    display: flex;
+    align-items: center; 
+    width: 100%;
+    padding-top: 260px;
+}
+
+
+h1 {
+    font-size: 96px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: black;
+}
+
+.subtitle {
+    font-size: 27px; 
+    font-weight: 600;
+    color: #555; 
+    margin-top: -110px;
+    white-space: nowrap; 
+}
+
+.description {
+    font-size: 40px;
+    line-height: 1.6;
+    margin-top: 120px;
+    color: #333; 
+   
+}
+

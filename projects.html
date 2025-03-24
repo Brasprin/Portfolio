@@ -6,10 +6,38 @@
     <title>Projects</title>
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
-    <div id="sidebar-container"></div>
-        <script src="js/sidebar.js"></script>
+    <div class = title> <h1>School Projects</h1></div>
+    <div class="container">
+        
+        <div class="project">
+            <h2>Distributed System Recovery</h2>
+            <p>This project implements master-slave recovery in MySQL. It consists of three nodes: one master node and two slave nodes. The master node is responsible for handling CRUD operations, while the slave nodes replicate its data. In case the master node fails, the system promotes the most up-to-date slave node to master, ensuring data consistency. Additionally, the web application implements concurrency control to prevent multiple transactions from being processed at the same time.</p>
+            <hr>
+        </div>
+
+        <div class="project">
+            <h2>File Exchange System</h2>
+            <p>This project implements a Client-Server File Exchange System using socket programming in Python. It allows clients to connect to a server via a specified IP address and port to facilitate file sharing. Users can upload files to the server, which can then be downloaded by other clients, enabling file exchange.</p>
+            <hr>
+        </div>
+
+        <div class="project">
+            <h2>Vending Machine</h2>
+            <p>This project implements a vending machine simulation using Object-Oriented Programming (OOP). It simulates a real-world vending machine scenario where users can insert money, select items, and receive change. The system follows OOP principles such as encapsulation, inheritance, polymorphism, and abstraction, ensuring a structured and modular design.</p>
+            <hr>
+        </div>
+
+        <div class="project">
+            <h2>Z Distance Calculation (X86 Assembly & C)</h2>
+            <p>This project calculates the Z distance using X86 assembly and C language. The C program handles input retrieval and stores the values in memory. Once the data is passed to X86 assembly, it performs the computation by optimizing memory registers for efficiency. The result is then returned to the C program for displaying result.</p>
+            <hr>
+        </div>
     </div>
+        <div id="sidebar-container"></div>
+            <script src="js/sidebar.js"></script>
+        </div>
 </body>
 </html>

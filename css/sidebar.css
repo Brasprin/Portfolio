@@ -1,5 +1,6 @@
+
+
 .sidebar {
-    font-family: 'Karma', sans-serif;
     width: 210px;
     height: 100vh;
     position: fixed;
@@ -12,6 +13,8 @@
     justify-content: center; 
     align-items: center;
     padding-top: 20px;
+    z-index: 1000;
+    overflow: hidden;
 }
 
 .sidebar-menu {
@@ -68,6 +71,7 @@
     justify-content: center; 
     align-items: center; 
     padding-bottom: 8px;
+    flex-wrap: wrap;
 }
 
 
