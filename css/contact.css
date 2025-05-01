@@ -1,42 +1,67 @@
-
-.body{
+body {
     color: black;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
+
 .container {
-    width: 82%;
-    margin: 50px auto;  
-    margin-left: 300px;  
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 1rem;
 }
+
 h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
+    text-align: center;
 }
+
 .contact-form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
+
 label {
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 0.5rem;
 }
-input, textarea {
+
+input,
+textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
 }
+
 .checkbox-group {
-    margin-top: 10px;
+    margin-top: 0.5rem;
 }
+
 button {
     background-color: black;
     color: white;
-    padding: 10px;
+    padding: 0.75rem;
     border: none;
     border-radius: 5px;
-    margin-top: 15px;
     cursor: pointer;
+    font-size: 1rem;
 }
+
 button:hover {
     background-color: #333;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 30px auto;
+        padding: 0 1rem;
+    }
 }
