@@ -1,36 +1,71 @@
 body {
-    color: black;
+    height: 100vh;
+    padding-left: 300px; 
+
 }
 
 .container {
-    width: 82%;
-    margin: 50px auto;  
-    margin-left: 300px;  
-}
+    align-items: center; 
+    padding-top: 4vh;
+    padding-left:2.5vw;
+    padding-right: 5vw; 
 
-h1 {
-    font-size: 2.5em;
-}
+    flex-direction: column;
+
+}   
 
 hr {
-    border: none;
-    height: 4px;
-    background-color: black;
-    margin: 20px 0;
-    
+   margin-bottom: 3vh;
 }
+
+section {
+    margin-bottom: -2vh;
+}
+
+h2 {
+    font-size: 2.5vw;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+
+h3 {
+    font-size: 1vw;
+
+}
+
+p {
+    font-size: 1vw;
+
+}
+
+.experience p {
+    margin-top: -1.5vh;
+    font-weight: normal;
+
+}
+
+li {
+    font-size: 0.8vw;
+}
+
+.skills p {
+    margin-top: -2vh;
+    margin-bottom: -1vh;
+}
+
 
 .degree-title {
     font-style: italic;
-    font-size: 1rem;
+    font-size: 1.3vh;
     text-align: right; 
     flex: 1;
-
+    flex-direction: row;
 }
 
 .degree-date {
     font-style: italic;
-    font-size: 1rem;
+    font-size: 1.3vh;
     font-weight: normal;
     margin-left: 20px;
 }
@@ -42,29 +77,13 @@ hr {
 }
 
 
-.contact-form {
+
+.download-resume {
     display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.checkbox-group {
-    margin-top: 10px;
-}
-
-
+    justify-content: center; 
+    align-items: center;    
+    margin-top: 5vh;
+  }
 
 .download-resume button {
     background: linear-gradient(45deg, 
@@ -74,12 +93,14 @@ input, textarea {
     );
     color: white;
     padding: 10px 20px;
+
     font-size: 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
+
 }
 
 .download-resume button:hover {

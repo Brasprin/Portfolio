@@ -4,3 +4,10 @@
     font-family: 'Karma', sans-serif;
 }
 
+
+
+hr {
+    border: none;
+    height: 0.6vh;
+    background-color: black;
+}
