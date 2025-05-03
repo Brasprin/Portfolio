@@ -1,8 +1,4 @@
 
-body {
-    height: 100vh;
-    padding-left: 300px; 
-}
 
 .container {
     box-sizing: border-box;
@@ -70,8 +66,6 @@ p {
 .project-link:hover::before {
     width: 100%;
 }
-
-
 
 
 h2, p, .project p{

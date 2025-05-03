@@ -2,12 +2,38 @@
 
 * {
     font-family: 'Karma', sans-serif;
+    
 }
 
 
+body {
+    padding-left: 300px; 
+
+}
+
+@media (max-width: 1000px) {
+    body {
+        padding-left: 0 !important;
+        padding-right:0 !important;
+      }
+    .sidebar-toggle-btn{
+        display: block !important;
+    }
+
+}
 
 hr {
     border: none;
     height: 0.6vh;
     background-color: black;
+}
+
+
+.sidebar-toggle-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    font-size: 3vw;
+    cursor: pointer;
+    padding-left: 2.9vw;
 }

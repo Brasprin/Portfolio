@@ -1,9 +1,8 @@
 
 body {
-    height: 100vh;
-    padding-left: 300px; 
     padding-right: 2vw; 
 }
+
 
 .container {
     display: flex;

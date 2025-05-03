@@ -1,0 +1,19 @@
+/* Hide sidebar by default */
+.mobile-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 1rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Show when class is toggled */
+.mobile-sidebar.show {
+    display: block;
+}
+

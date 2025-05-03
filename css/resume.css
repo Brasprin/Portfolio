@@ -1,17 +1,10 @@
-body {
-    height: 100vh;
-    padding-left: 300px; 
-
-}
 
 .container {
     align-items: center; 
     padding-top: 4vh;
-    padding-left:2.5vw;
+    padding-left: 3vw;
     padding-right: 5vw; 
-
     flex-direction: column;
-
 }   
 
 hr {
@@ -46,7 +39,7 @@ p {
 }
 
 li {
-    font-size: 0.8vw;
+    font-size: 1vw;
 }
 
 .skills p {
@@ -57,7 +50,7 @@ li {
 
 .degree-title {
     font-style: italic;
-    font-size: 1.3vh;
+    font-size: 2vh;
     text-align: right; 
     flex: 1;
     flex-direction: row;
@@ -65,7 +58,7 @@ li {
 
 .degree-date {
     font-style: italic;
-    font-size: 1.3vh;
+    font-size: 2vh;
     font-weight: normal;
     margin-left: 20px;
 }
@@ -83,6 +76,7 @@ li {
     justify-content: center; 
     align-items: center;    
     margin-top: 5vh;
+    margin-bottom: 3vh;
   }
 
 .download-resume button {
@@ -92,11 +86,11 @@ li {
         rgba(0, 100, 200, 1)
     );
     color: white;
-    padding: 10px 20px;
 
-    font-size: 1rem;
+    padding: 0.4vw 0.9vw;
+    font-size: 2vh;
     border: none;
-    border-radius: 5px;
+    border-radius:  0.2vw;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
