@@ -97,3 +97,17 @@
         display: none !important;
     }
 }
+
+
+
+#mobile-sidebarToggle {
+    display: block;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding-left: 1.52rem;
+    margin-top: -8px;
+}
+

@@ -24,17 +24,14 @@ body {
 }
 
 
-.sidebar-toggle-btn a:hover {
-    color: white;
-
-}
 .sidebar-toggle-btn {
+    background-color: white;
     display: none;
-    background-color: transparent;
+    color: rgb(0, 0, 0);
     border: none;
     font-size:2rem;
     cursor: pointer;
-    padding-left: 2.9vw;
+    padding-left: 2rem;
 }
 
 hr {
