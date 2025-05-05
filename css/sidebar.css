@@ -59,6 +59,7 @@
 }
 
 .sidebar a:hover {
+    background: #333333;
     border-radius: 5px;
 }
 
