@@ -32,13 +32,13 @@ body {
     display: none;
     background-color: transparent;
     border: none;
-    font-size: 3vw;
+    font-size:2rem;
     cursor: pointer;
     padding-left: 2.9vw;
 }
 
 hr {
     border: none;
-    height: 0.6vh;
+    height: 0.3rem;
     background-color: black;
 }

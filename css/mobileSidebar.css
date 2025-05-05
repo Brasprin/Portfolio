@@ -12,8 +12,8 @@
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
-
 }
+
 
 .mobile-sidebar-menu {
     padding: 0;
@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center; 
     flex-grow: 1;
-    padding-bottom: 5vh;
+    padding-bottom: 5rem;
     width: 100%;
 }
 
@@ -39,12 +39,12 @@
 
 .mobile-sidebar-menu a {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #FFFFFF;
     text-decoration: none;
     display: inline-block; 
-    padding: 10px 20px; 
-    margin-bottom: 4vh;
+    padding: 0.625rem 1.25rem; 
+    margin-bottom: 1rem;
     border-radius: 5px;
     transition: background 0.3s;
 }
@@ -55,14 +55,15 @@
 
 .mobile-social-icons {
     display: flex;
-    gap: 5vh;
+    gap: 5rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: -4rem;
 }
 
 .mobile-social-icons i {
-    font-size: 28px;
+    font-size: 1.75rem;
     color: white !important;
     transition: transform 0.3s ease-in-out, color 0.3s;
 }
@@ -80,15 +81,15 @@
 }
 
 .mobile-name {
-    font-size: 18px;
-    padding-bottom: 7vh;
+    font-size: 1.125rem;
+    padding-bottom: 2rem;
 }
 
 .mobile-copyright {
-    font-size: 12px;
+    font-size: 0.75rem;
     box-sizing: border-box;
-    padding-top: 3vh;
-    padding-bottom: 8vh;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 @media (min-width: 1000px) {
