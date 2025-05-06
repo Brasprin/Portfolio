@@ -1,3 +1,8 @@
+.mobile-sidebar-container {
+    align-items: center;  
+    justify-content: center;
+}
+
 .sidebar {
     width: 210px;
     height: 100vh;
@@ -14,6 +19,7 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 
 .sidebar-menu {
     width: 100%;
