@@ -1,52 +1,39 @@
-
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("components/sidebar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("sidebar-container").innerHTML = data;
-        })
-        .catch(error => console.error("Error loading sidebar:", error));
-
-    fetch("components/mobileSidebar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("mobileSidebar-container").innerHTML = data;
-            setupToggleButtons();
-        })
-        .catch(error => console.error("Error loading mobile sidebar:", error));
+$(document).ready(function() {
+    loadSidebars();
 });
 
-// Setup both toggle buttons
-function setupToggleButtons() {
-    const regularToggleButton = document.getElementById('sidebarToggle');
-    const mobileToggleButton = document.getElementById('mobile-sidebarToggle');
-    const mobileSidebar = document.getElementById('mobile-sidebar');
+async function loadSidebars() {
+    // Load sidebar
+    $("#sidebar-container").load("components/sidebar.html", function() {
+    });
 
+    // Load mobile sidebar
+    $("#mobileSidebar-container").load("components/mobileSidebar.html", function() {
+        setupToggleButtons();
+    });
+}
+
+// Setup sidebar toggle buttons
+async function setupToggleButtons() {
+    const $mobileSidebar = $("#mobile-sidebar");
+    
     // Regular sidebar toggle
-    if (regularToggleButton && mobileSidebar) {
-        regularToggleButton.addEventListener('click', function () {
-            mobileSidebar.classList.toggle('show');
-        });
-    }
+    $("#sidebarToggle").on('click', function() {
+        $mobileSidebar.toggleClass('show');
+    });
     
     // Mobile sidebar toggle
-    if (mobileToggleButton && mobileSidebar) {
-        mobileToggleButton.addEventListener('click', function () {
-            mobileSidebar.classList.toggle('show');
-        });
-    }
+    $("#mobile-sidebarToggle").on('click', function() {
+        $mobileSidebar.toggleClass('show');
+    });
     
     // Check if we have at least one of the toggle buttons
-    if ((regularToggleButton || mobileToggleButton) && mobileSidebar) {
-        document.addEventListener('click', function(event) {
-            if (!mobileSidebar.contains(event.target) && 
-                event.target !== regularToggleButton &&
-                event.target !== mobileToggleButton && 
-                mobileSidebar.classList.contains('show')) {
-                mobileSidebar.classList.remove('show');
-            }
-        });
-    } else {
-        console.error("Toggle buttons or sidebar not found.");
-    }
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('#mobile-sidebar').length && 
+            !$(event.target).is('#sidebarToggle') &&
+            !$(event.target).is('#mobile-sidebarToggle') && 
+            $mobileSidebar.hasClass('show')) {
+            $mobileSidebar.removeClass('show');
+        }
+    });
 }

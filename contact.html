@@ -15,33 +15,38 @@
             <h1>Contact me!</h1>
             <p>Have any questions? Fill out the form and I’ll get you a response soon!</p>
             <p>+63 9777377606 | tamseandrei@gmail.com</p>
-            <form class="contact-form">
+
+           
+            <form class="contact-form" action="https://formspree.io/f/xpwdrkrd" method="POST">
                 <label for="first-name">First Name</label>
-                <input type="text" id="first-name" required>
+                <input type="text" id="first-name" name="first-name" required>
 
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" required>
+                <input type="text" id="last-name" name="last-name" required>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" required>
+                <input type="email" id="email" name="email" required>
 
                 <div class="checkbox-group">
                     <p>Which are you?</p>
-                    <label><input type="checkbox"> Student</label><br>
-                    <label><input type="checkbox"> Recruiter</label><br>
-                    <label><input type="checkbox"> Employer</label><br>
-                    <label><input type="checkbox"> Freelancer/Client</label><br>
+                    <label><input type="checkbox" name="role[]" value="Student"> Student</label><br>
+                    <label><input type="checkbox" name="role[]" value="Recruiter"> Recruiter</label><br>
+                    <label><input type="checkbox" name="role[]" value="Employer"> Employer</label><br>
+                    <label><input type="checkbox" name="role[]" value="Freelancer/Client"> Freelancer/Client</label><br>
                 </div>
 
                 <label for="message">Message</label>
-                <textarea id="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
                 <button type="submit">Send</button>
             </form>
         </div>
+        
         <div id="sidebar-container"></div>
         <div id="mobileSidebar-container"></div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/sidebar.js"></script>
 </body>
 </html>
