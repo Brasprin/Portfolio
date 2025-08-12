@@ -9,19 +9,21 @@ function loadInto(selector, url) {
   });
 }
 
-async function initSidebars() {
-  try {
-    await Promise.all([
-      loadInto("#sidebar-container", "sidebar.html"),
-      loadInto("#mobileSidebar-container", "mobileSidebar.html"),
-    ]);
-    document.documentElement.classList.add("sidebars-ready");
-    setupToggleButtons();
-    if (window.htmx) wireSpaNav(); // only wire SPA nav if HTMX is present
-  } catch (e) {
-    console.error("Failed to load sidebars:", e);
+  async function initSidebars() {
+    try {
+      await Promise.all([
+  loadInto("#sidebar-container", "/components/sidebar.html"),
+      loadInto("#mobileSidebar-container", "/components/mobileSidebar.html"),
+      ]);
+      document.documentElement.classList.add("sidebars-ready");
+      setupToggleButtons();
+      if (window.htmx) wireSpaNav();
+    } catch (e) {
+      console.error("Failed to load sidebars:", e);
+      document.querySelectorAll("#sidebar-container,#mobileSidebar-container")
+        .forEach(n => n.style.visibility = "visible");
+    }
   }
-}
 
 function setupToggleButtons() {
   const $mobileSidebar = $("#mobile-sidebar");
