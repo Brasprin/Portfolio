@@ -1,39 +1,54 @@
-$(document).ready(function() {
-    loadSidebars();
-});
+document.addEventListener("DOMContentLoaded", initSidebars);
 
-async function loadSidebars() {
-    // Load sidebar
-    $("#sidebar-container").load("components/sidebar.html", function() {
+function loadInto(selector, url) {
+  return new Promise((resolve, reject) => {
+    $(selector).load(url, function (response, status, xhr) {
+      if (status === "error") reject(xhr?.statusText || "Load error");
+      else resolve();
     });
-
-    // Load mobile sidebar
-    $("#mobileSidebar-container").load("components/mobileSidebar.html", function() {
-        setupToggleButtons();
-    });
+  });
 }
 
-// Setup sidebar toggle buttons
-async function setupToggleButtons() {
-    const $mobileSidebar = $("#mobile-sidebar");
-    
-    // Regular sidebar toggle
-    $("#sidebarToggle").on('click', function() {
-        $mobileSidebar.toggleClass('show');
+async function initSidebars() {
+  try {
+    await Promise.all([
+      loadInto("#sidebar-container", "/components/sidebar.html"),
+      loadInto("#mobileSidebar-container", "/components/mobileSidebar.html"),
+    ]);
+    document.documentElement.classList.add("sidebars-ready");
+    setupToggleButtons();
+    wireSpaNav(); // ←make sidebar links load partials
+  } catch (e) {
+    console.error("Failed to load sidebars:", e);
+  }
+}
+
+function setupToggleButtons() {
+  const $mobileSidebar = $("#mobile-sidebar");
+  $("#sidebarToggle").off("click").on("click", () => $mobileSidebar.toggleClass("show"));
+  $("#mobile-sidebarToggle").off("click").on("click", () => $mobileSidebar.toggleClass("show"));
+  $(document).off("click.sidebar").on("click.sidebar", (event) => {
+    if (
+      !$(event.target).closest("#mobile-sidebar").length &&
+      !$(event.target).is("#sidebarToggle") &&
+      !$(event.target).is("#mobile-sidebarToggle") &&
+      $mobileSidebar.hasClass("show")
+    ) {
+      $mobileSidebar.removeClass("show");
+    }
+  });
+}
+
+function wireSpaNav() {
+  $("#sidebar-container, #mobileSidebar-container").on("click", "a[data-partial]", function (e) {
+    e.preventDefault();
+    const partial = this.getAttribute("data-partial");
+    const url = this.getAttribute("href") || "/";
+    htmx.ajax("GET", partial, {
+      target: "#content",
+      swap: "innerHTML",
+      history: "push",
+      path: url
     });
-    
-    // Mobile sidebar toggle
-    $("#mobile-sidebarToggle").on('click', function() {
-        $mobileSidebar.toggleClass('show');
-    });
-    
-    // Check if we have at least one of the toggle buttons
-    $(document).on('click', function(event) {
-        if (!$(event.target).closest('#mobile-sidebar').length && 
-            !$(event.target).is('#sidebarToggle') &&
-            !$(event.target).is('#mobile-sidebarToggle') && 
-            $mobileSidebar.hasClass('show')) {
-            $mobileSidebar.removeClass('show');
-        }
-    });
+  });
 }

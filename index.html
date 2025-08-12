@@ -3,38 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Index</title>
+
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/mobileSidebar.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
+
+    <link id="page-css" rel="stylesheet" href="css/home.css">
+
+    <script src="https://unpkg.com/htmx.org@1.9.12" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="js/sidebar.js" ></script>
+
+    <script>
+        function initializeRouting() {
+            const view = {
+                "#/":        ["partials/home.html",     "css/home.css"],
+                "#/projects":["partials/projects.html", "css/projects.css"],
+                "#/resume":  ["partials/resume.html",   "css/resume.css"],
+                "#/contact": ["partials/contact.html",  "css/contact.css"],
+            };
+            
+            // Use hash for routing 
+            const currentHash = location.hash || "#/";
+            const [partial, css] = view[currentHash] || view["#/"];
+            
+            console.log(`Loading: ${partial} with CSS: ${css}`);
+            
+            htmx.ajax("GET", partial, { 
+                target: "#content", 
+                swap: "innerHTML"
+            }).then(() => {
+                document.getElementById("page-css").href = css;
+            }).catch((error) => {
+                console.error("Error loading content:", error);
+                document.getElementById("content").innerHTML = `
+                    <div style="padding: 20px;">
+                        <h2>Page Not Found</h2>
+                        <p>Could not load: ${partial}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.addEventListener('hashchange', initializeRouting);
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeRouting);
+        } else {
+            initializeRouting();
+        }
+    </script>
+
+
+    <style> 
+    #sidebar-container, #mobileSidebar-container { visibility: hidden; }
+    html.sidebars-ready #sidebar-container,
+    html.sidebars-ready #mobileSidebar-container { visibility: visible; }
+    </style>
+
 </head>
 <body>
     <div id="sidebar-container"></div>
     <div id="mobileSidebar-container"></div>
-    <div id="content-container"></div>
     <button id="sidebarToggle" class="sidebar-toggle-btn">☰</button>
     <div class="container">
-
-        
-        <div class="text-section">
-            <h1>Hi, I am <span class="highlight">Andrei!</span></h1>
-            <p class="subtitle">Aspiring Computer Scientist specializing in Software Technology.</p>
-            <p class="description">
-                Computer Science student passionate about Software Development and 
-                Business Intelligence Analytics, providing technology-driven solutions to real-world problems.
-            </p>
-        </div>
-        <div class="profile">
-            <img src="images/profile.png" alt="Profile picture">
-        </div>
-
-
+        <main id="content" class="content">
+            
+        </main>
     </div>
-    <div id="sidebar-container"></div>
-    <div id="mobileSidebar-container"></div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="js/spa.js"></script>
 </body>
 </html>

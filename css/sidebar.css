@@ -16,7 +16,7 @@
     align-items: center;
     padding-top: 20px;
 
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
