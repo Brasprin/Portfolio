@@ -12,12 +12,12 @@ function loadInto(selector, url) {
 async function initSidebars() {
   try {
     await Promise.all([
-      loadInto("#sidebar-container", "/components/sidebar.html"),
-      loadInto("#mobileSidebar-container", "/components/mobileSidebar.html"),
+      loadInto("#sidebar-container", "sidebar.html"),
+      loadInto("#mobileSidebar-container", "mobileSidebar.html"),
     ]);
     document.documentElement.classList.add("sidebars-ready");
     setupToggleButtons();
-    wireSpaNav(); // ←make sidebar links load partials
+    if (window.htmx) wireSpaNav(); // only wire SPA nav if HTMX is present
   } catch (e) {
     console.error("Failed to load sidebars:", e);
   }
